@@ -1,0 +1,8 @@
+C:\Users\Akshitha\source\repos\WifiQrLambdaProcessor\src\WifiQrLambdaProcessor\bin\Release\net8.0\publish\WifiQrLambdaProcessor.deps.json
+C:\Users\Akshitha\source\repos\WifiQrLambdaProcessor\src\WifiQrLambdaProcessor\bin\Release\net8.0\publish\WifiQrLambdaProcessor.runtimeconfig.json
+C:\Users\Akshitha\source\repos\WifiQrLambdaProcessor\src\WifiQrLambdaProcessor\bin\Release\net8.0\publish\WifiQrLambdaProcessor.pdb
+C:\Users\Akshitha\source\repos\WifiQrLambdaProcessor\src\WifiQrLambdaProcessor\bin\Release\net8.0\publish\Amazon.Lambda.Core.dll
+C:\Users\Akshitha\source\repos\WifiQrLambdaProcessor\src\WifiQrLambdaProcessor\bin\Release\net8.0\publish\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\Akshitha\source\repos\WifiQrLambdaProcessor\src\WifiQrLambdaProcessor\bin\Release\net8.0\publish\Amazon.Lambda.SQSEvents.dll
+C:\Users\Akshitha\source\repos\WifiQrLambdaProcessor\src\WifiQrLambdaProcessor\bin\Release\net8.0\publish\AWSSDK.Core.dll
+C:\Users\Akshitha\source\repos\WifiQrLambdaProcessor\src\WifiQrLambdaProcessor\bin\Release\net8.0\publish\WifiQrLambdaProcessor.dll
