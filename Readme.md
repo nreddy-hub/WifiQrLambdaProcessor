@@ -1,49 +1,69 @@
-# AWS Lambda Empty Function Project
+# WifiQrLambdaProcessor
 
-This starter project consists of:
-* Function.cs - class file containing a class with a single function handler method
-* aws-lambda-tools-defaults.json - default argument settings for use with Visual Studio and command line deployment tools for AWS
+A small AWS Lambda project (C# / .NET) that processes WiFi QR payloads and publishes a `WifiQrCreatedMessage`.
 
-You may also have a test project depending on the options selected.
+## Contents
+- `Function.cs` — Lambda handler implementation
+- `WifiQrCreatedMessage.cs` — message model used by the function
+- `aws-lambda-tools-defaults.json` — defaults for `dotnet lambda` commands
+- `test/` — unit tests for the project
 
-The generated function handler is a simple method accepting a string argument that returns the uppercase equivalent of the input string. Replace the body of this method, and parameters, to suit your needs. 
+## Prerequisites
+- .NET SDK (check `TargetFramework` in the .csproj)
+- Amazon.Lambda.Tools (optional for packaging/deploying):
 
-## Here are some steps to follow from Visual Studio:
-
-To deploy your function to AWS Lambda, right click the project in Solution Explorer and select *Publish to AWS Lambda*.
-
-To view your deployed function open its Function View window by double-clicking the function name shown beneath the AWS Lambda node in the AWS Explorer tree.
-
-To perform testing against your deployed function use the Test Invoke tab in the opened Function View window.
-
-To configure event sources for your deployed function, for example to have your function invoked when an object is created in an Amazon S3 bucket, use the Event Sources tab in the opened Function View window.
-
-To update the runtime configuration of your deployed function use the Configuration tab in the opened Function View window.
-
-To view execution logs of invocations of your function use the Logs tab in the opened Function View window.
-
-## Here are some steps to follow to get started from the command line:
-
-Once you have edited your template and code you can deploy your application using the [Amazon.Lambda.Tools Global Tool](https://github.com/aws/aws-extensions-for-dotnet-cli#aws-lambda-amazonlambdatools) from the command line.
-
-Install Amazon.Lambda.Tools Global Tools if not already installed.
-```
-    dotnet tool install -g Amazon.Lambda.Tools
+```powershell
+dotnet tool install -g Amazon.Lambda.Tools
 ```
 
-If already installed check if new version is available.
-```
-    dotnet tool update -g Amazon.Lambda.Tools
+Or update if already installed:
+
+```powershell
+dotnet tool update -g Amazon.Lambda.Tools
 ```
 
-Execute unit tests
-```
-    cd "WifiQrLambdaProcessor/test/WifiQrLambdaProcessor.Tests"
-    dotnet test
+## Build
+From the project folder:
+
+```powershell
+cd src\WifiQrLambdaProcessor
+dotnet build -c Release
 ```
 
-Deploy function to AWS Lambda
+## Test
+
+```powershell
+cd test\WifiQrLambdaProcessor.Tests
+dotnet test
 ```
-    cd "WifiQrLambdaProcessor/src/WifiQrLambdaProcessor"
-    dotnet lambda deploy-function
+
+## Package
+Create a deployment package (ZIP) for manual upload:
+
+```powershell
+cd src\WifiQrLambdaProcessor
+dotnet lambda package -c Release -o ..\\..\\wifi-qr-lambda.zip
 ```
+
+## Deploy
+Option A — Use `dotnet lambda deploy-function` (uses `aws-lambda-tools-defaults.json` or prompts for values):
+
+```powershell
+cd src\WifiQrLambdaProcessor
+dotnet lambda deploy-function
+```
+
+Option B — Use CI/GitHub Actions to build and deploy the ZIP artifact.
+
+## Configuration
+Edit `aws-lambda-tools-defaults.json` to set function name, runtime, memory, and other defaults used by `dotnet lambda`.
+
+## Development notes
+- Inspect `Function.cs` and `WifiQrCreatedMessage.cs` for the function's input/output shapes.
+- Add `.gitignore` to exclude `bin/`, `obj/`, `*.zip`, and IDE/user files.
+
+## Contributing
+Fork, create a branch, add tests for new behavior, and open a pull request.
+
+## License
+Specify your project license here (e.g., MIT) or add a `LICENSE` file.

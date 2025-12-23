@@ -1,0 +1,26 @@
+# .gitignore for WifiQrLambdaProcessor
+# Ignore node modules
+node_modules/
+# Ignore build output
+dist/
+# Ignore environment variable files
+.env
+.env.local
+.env.*.local
+# Ignore log files
+*.log
+# Ignore temporary files
+*.tmp
+# Ignore IDE specific files
+.vscode/
+.idea/
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+bin/
+obj/
+*.zip
+*.user
+*.suo
+publish/
